@@ -47,7 +47,7 @@ public class Quiz {
             }
         }
         int totalQuestions = questions.size();
-        grade = (score*100)/questions.size();
+        grade = (score*100) / totalQuestions;
 
     }
     @Override
