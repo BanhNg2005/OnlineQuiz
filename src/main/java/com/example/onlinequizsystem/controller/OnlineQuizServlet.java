@@ -12,12 +12,5 @@ public class OnlineQuizServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
 
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String email = request.getParameter("email");
-
-        if(username==null || password==null || email==null){
-
-        }
     }
 }
