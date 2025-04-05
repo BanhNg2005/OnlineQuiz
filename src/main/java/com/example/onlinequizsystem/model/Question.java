@@ -16,4 +16,8 @@ public class Question {
     public String getAnswer() {
         return answer;
     }
+
+    public boolean isCorrect(String userAnswer) {
+        return answer.equals(userAnswer);
+    }
 }
