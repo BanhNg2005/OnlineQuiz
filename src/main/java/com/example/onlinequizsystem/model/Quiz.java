@@ -50,8 +50,6 @@ public class Quiz {
         grade = (score*100) / totalQuestions;
 
     }
-
-
     @Override
     public String toString() {
         return "Quiz{" +
