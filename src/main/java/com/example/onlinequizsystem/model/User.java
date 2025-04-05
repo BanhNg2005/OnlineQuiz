@@ -48,6 +48,17 @@ public class User {
         return password.matches(passwordRegex);
     }
 
+    // check if username is unique and not already taken
+    public boolean isUniqueUsername(List<User> users) {
+        for (User user : users) {
+            if (user.getUsername().equals(this.username)) {
+                System.out.println("Username already taken. Please choose a different one!");
+                return false;
+            }
+        }
+        return true;
+    }
+
     // toString method
     @Override
     public String toString() {
