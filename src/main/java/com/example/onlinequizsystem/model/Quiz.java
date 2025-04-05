@@ -41,14 +41,13 @@ public class Quiz {
         }
 
         int score = 0;
-        Scanner scn = new Scanner(System.in);
         for (int i = 0; i < questions.size(); i++) {
             if(questions.get(i).isCorrect(userAnswers.get(i))){
                 score++;
             }
         }
         int totalQuestions = questions.size();
-        grade = (score*100)/questions.size();
+        grade = (score*100) / totalQuestions;
 
     }
 
