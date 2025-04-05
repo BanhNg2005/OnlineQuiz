@@ -41,7 +41,7 @@ public class User {
         return email.matches(emailRegex);
     }
 
-    // validate username
+    // validate password
     public boolean isValidPassword() {
         // at least 8 characters and a number
         String passwordRegex = "^(?=.*[0-9]).{8,}$";
