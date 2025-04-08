@@ -12,32 +12,47 @@ import java.io.IOException;
 
 @WebServlet("/signUp")
 public class signUpServlet extends HttpServlet {
+    // This handles initial page load
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
+        // Just display the form, no validation
+        request.getRequestDispatcher("WEB-INF/views/signup.jsp").forward(request, response);
+    }
 
+    // This handles form submission
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // Get parameters
         String email = request.getParameter("email");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        //check if user field is missing
-        if(email.isEmpty() || username.isEmpty() || password.isEmpty()){
+
+        // Validate parameters
+        if(email == null || username == null || password == null ||
+                email.isEmpty() || username.isEmpty() || password.isEmpty()) {
             request.setAttribute("error", "Please fill all the fields");
-            request.getRequestDispatcher("signup.jsp").forward(request,response);
+            request.getRequestDispatcher("signup.jsp").forward(request, response);
+            return;
         }
-        //created a temporary user to validate input
-        User tempUser = new User(email,username,password,null,null);
+
+        User tempUser = new User(email, username, password, null, null);
 
         if (!tempUser.isValidEmail()){
             request.setAttribute("error", "Invalid email");
             request.getRequestDispatcher("signup.jsp").forward(request, response);
             return;
         }
+//        if (!tempUser.isUniqueUsername()){
+//            request.setAttribute("error", "Invalid email");
+//            request.getRequestDispatcher("signup.jsp").forward(request, response);
+//            return;
+//        }
         if (!tempUser.isValidPassword()){
             request.setAttribute("error", "Invalid password");
             request.getRequestDispatcher("signup.jsp").forward(request, response);
             return;
         }
+
         response.sendRedirect("index.jsp");
-        request.getRequestDispatcher("/WEB-INF/views/signup.jsp").forward(request, response);
     }
 }

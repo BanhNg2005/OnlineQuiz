@@ -13,7 +13,7 @@
 </head>
 <body>
 <h2>Register for Online Quiz</h2>
-<form action="SignUp" method="GET">
+<form action="signUp" method="GET">
     <label>Username:</label>
     <input type="text" name="username" required><br>
 
@@ -27,5 +27,11 @@
 </form>
 
 <p>Already have an account? <a href="login.jsp">Login here</a></p>
+<%
+    String error = (String) request.getAttribute("error");
+    if (error != null) {
+%>
+<p style="color: red;"><%= error %></p>
+<% } %>
 </body>
 </html>
