@@ -81,4 +81,8 @@ public class signUpServlet extends HttpServlet {
     public static String hashPassword(String password) {
         return BCrypt.hashpw(password, BCrypt.gensalt());
     }
+    private void addUser(HttpServletRequest request ){
+
+
+    }
 }
