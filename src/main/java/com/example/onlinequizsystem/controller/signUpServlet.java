@@ -26,7 +26,7 @@ public class signUpServlet extends HttpServlet {
             request.getRequestDispatcher("signup.jsp").forward(request,response);
         }
         //created a temporary user to validate input
-        User tempUser = new User(email,username,password,null,null);
+        User tempUser = new User(email,username,password,null);
 
         if (!tempUser.isValidEmail()){
             request.setAttribute("error", "Invalid email");
@@ -58,7 +58,7 @@ public class signUpServlet extends HttpServlet {
             return;
         }
 
-        User tempUser = new User(email, username, password, null, null);
+        User tempUser = new User(email, username, password, null);
 
         if (!tempUser.isValidEmail()){
             request.setAttribute("error", "Invalid email");
