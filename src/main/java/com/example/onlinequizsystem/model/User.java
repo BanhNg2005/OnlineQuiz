@@ -7,15 +7,13 @@ public class User {
     private String username;
     private String password;
     private List<Quiz> createdQuizzes;
-    private List<Quiz> attemptedQuizzes;
 
     // Constructor
-    public User(String email, String username, String password, List<Quiz> createdQuizzes, List<Quiz> attemptedQuizzes) {
+    public User(String email, String username, String password, List<Quiz> createdQuizzes) {
         this.email = email;
         this.username = username;
         this.password = password;
         this.createdQuizzes = createdQuizzes;
-        this.attemptedQuizzes = attemptedQuizzes;
     }
 
     // Getters and methods
@@ -31,9 +29,7 @@ public class User {
     public List<Quiz> getCreatedQuizzes() {
         return createdQuizzes;
     }
-    public List<Quiz> getAttemptedQuizzes() {
-        return attemptedQuizzes;
-    }
+
 
     // validate email
     public boolean isValidEmail() {
@@ -67,7 +63,6 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", createdQuizzes=" + createdQuizzes +
-                ", attemptedQuizzes=" + attemptedQuizzes +
                 '}';
     }
 
